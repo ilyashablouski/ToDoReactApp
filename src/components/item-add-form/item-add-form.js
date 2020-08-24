@@ -17,7 +17,10 @@ export default class ItemAddForm extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     this.props.onItemAdded(this.state.label);
-  }
+    this.setState({
+      label: ''
+    });
+  };
 
   render() {
     return (
@@ -27,7 +30,8 @@ export default class ItemAddForm extends Component {
           className="form-control"
           onChange={this.onLabelChange}
           placeholder="What needs to be done"
-          required />
+          required
+          value={this.state.label} />
 
         <button type="submit"
           className="btn btn-outline-secondary btn-sm">
